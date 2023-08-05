@@ -10,7 +10,7 @@ import docx2txt
 import os
 import openai
 
-openai_api_key = "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"
+openai_api_key = os.environ.get("OPENAI_API_KEY")
 
 # Custom CSS styles
 CUSTOM_CSS = """
@@ -96,10 +96,10 @@ def main():
         text_chunks_padded = [chunk + " " * (max_chunk_length - len(chunk)) for chunk in text_chunks]
 
         # create embeddings
-        embeddings = OpenAIEmbeddings()
+        embeddings = OpenAIEmbeddings(api_key=openai_api_key)
         docsearch = FAISS.from_texts(text_chunks_padded, embeddings)  # Use the padded chunks
 
-        llm = OpenAI(model_name="text-davinci-003")
+        llm = OpenAI(model_name="text-davinci-003" , api_key=openai_api_key)
         chain = load_qa_chain(llm, chain_type="stuff")
 
         # Show user input and chat history in the chatbox
