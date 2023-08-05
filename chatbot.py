@@ -66,6 +66,7 @@ def main():
     st.markdown('<div style="display: flex; justify-content: center; align-items: center; flex-direction: column;">'
                 '<h1 style="text-align: center;">OracleDelphAI - Lawyer Bot 💬</h1>'
                 '</div>', unsafe_allow_html=True)
+    st.title("(THIS IS NOT THE FINAL VERSION, THE BOT IS STILL IN TESTING AND WE ARE CONSTANTLY UPDATING IT SO EXPECT SOME ERRORS AND BUGS TO BE THERE)")
 
     # upload file
     uploaded_file = st.file_uploader("Upload your file (PDF, DOCX or DOC)", type=["pdf", "docx", "doc"])
